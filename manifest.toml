@@ -41,11 +41,6 @@ ram.runtime = "64M"
     help.fr = "Ce sera le premier utilisateur créé sur l'instance."
     type = "string"
 
-    [install.password]
-    ask.en = "Choose the admin password"
-    ask.fr = "Choisissez le mot de passe admin"
-    type = "password"
-
     [install.admin_email]
     ask.en = "Admin email address (optional)"
     ask.fr = "Adresse email de l'administrateur (optionnel)"

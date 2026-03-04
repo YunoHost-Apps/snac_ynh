@@ -126,26 +126,37 @@ rm -rf "$install_dir/src"
 chown -R "$app:www-data" "$install_dir"
 
 #=================================================
-# GENERATE CONFIGURATION
+# INITIALIZE SNAC DATA DIRECTORY
 #=================================================
-ynh_script_progression "Adding $app's configuration files..."
+ynh_script_progression "Initializing snac2 data directory..."
 
-mkdir -p "$data_dir"
+# snac init requires the directory to NOT exist, but YunoHost creates it
+# Remove it so snac init can create it with all needed files
+rmdir "$data_dir"
 
-# Set ownership before generating config and creating user
-chown -R "$app:$app" "$data_dir"
+# Run snac init: prompts are address, port, host, prefix, admin_email
+printf '%s\n%s\n%s\n%s\n%s\n' \
+    "" \
+    "$port" \
+    "$domain" \
+    "$path_prefix" \
+    "$admin_email" \
+    | "$install_dir/snac" init "$data_dir" 2>&1
 
+# Overwrite server.json with our full template (includes all configurable options)
 ynh_config_add --template="server.json" --destination="$data_dir/server.json"
 chmod 600 "$data_dir/server.json"
-chown "$app:$app" "$data_dir/server.json"
+chown -R "$app:$app" "$data_dir"
 
 #=================================================
 # CREATE ADMIN USER
 #=================================================
 ynh_script_progression "Creating admin user..."
 
-# Run adduser as the app user so it can create directories under data_dir
-printf '%s\n%s\n' "$password" "$admin" | sudo -u "$app" "$install_dir/snac" adduser "$data_dir" "$admin" 2>&1
+# Run adduser as the app user, capture output to extract the generated password
+adduser_output=$(sudo -u "$app" "$install_dir/snac" adduser "$data_dir" "$admin" 2>&1)
+generated_password=$(echo "$adduser_output" | grep -oP 'User password is \K.*')
+ynh_app_setting_set --key=generated_password --value="$generated_password"
 
 #=================================================
 # SYSTEM CONFIGURATION
