@@ -131,6 +131,10 @@ chown -R "$app:www-data" "$install_dir"
 ynh_script_progression "Adding $app's configuration files..."
 
 mkdir -p "$data_dir"
+
+# Set ownership before generating config and creating user
+chown -R "$app:$app" "$data_dir"
+
 ynh_config_add --template="server.json" --destination="$data_dir/server.json"
 chmod 600 "$data_dir/server.json"
 chown "$app:$app" "$data_dir/server.json"
@@ -140,9 +144,8 @@ chown "$app:$app" "$data_dir/server.json"
 #=================================================
 ynh_script_progression "Creating admin user..."
 
-printf '%s\n%s\n' "$password" "$admin" | "$install_dir/snac" adduser "$data_dir" "$admin" 2>&1
-
-chown -R "$app:$app" "$data_dir"
+# Run adduser as the app user so it can create directories under data_dir
+printf '%s\n%s\n' "$password" "$admin" | sudo -u "$app" "$install_dir/snac" adduser "$data_dir" "$admin" 2>&1
 
 #=================================================
 # SYSTEM CONFIGURATION
