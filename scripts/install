@@ -141,7 +141,7 @@ ynh_script_progression "Initializing snac2 data directory..."
 
 # snac init requires the directory to NOT exist, but YunoHost creates it
 # Remove it so snac init can create it with all needed files
-rmdir "$data_dir"
+rm -rf "$data_dir"
 
 # Run snac init: prompts are address, port, host, prefix, admin_email
 printf '%s\n%s\n%s\n%s\n%s\n' \
@@ -193,5 +193,9 @@ ynh_systemctl --service="$app" --action="start"
 #=================================================
 # END OF SCRIPT
 #=================================================
+
+# Force SSOwat to pick up protect_against_basic_auth_spoofing setting
+# (must happen after permissions are provisioned)
+yunohost user permission update "$app.main" --show_tile="False"
 
 ynh_script_progression "Installation of $app completed"
