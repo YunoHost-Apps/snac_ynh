@@ -16,6 +16,10 @@ ynh_script_progression "Initializing settings..."
 admin_account="$admin"
 ynh_app_setting_set --key=admin_account --value="$admin_account"
 
+# snac uses HTTP Basic Auth for login — disable SSOwat's auth header injection
+# and basic auth spoofing protection so the client's Authorization header reaches snac
+ynh_app_setting_set --key=protect_against_basic_auth_spoofing --value="false"
+
 # Compute and store path prefix
 compute_path_prefix
 ynh_app_setting_set --key=path_prefix --value="$path_prefix"
@@ -39,9 +43,9 @@ max_attachments=4
 max_poll_options=8
 max_poll_option_length=50
 max_public_entries=128
-proxy_media=true
+proxy_media=false
 show_instance_timeline=false
-strip_exif=true
+strip_exif=false
 enable_svg=false
 shared_inboxes=true
 badlogin_retries=5

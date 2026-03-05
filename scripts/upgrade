@@ -44,9 +44,9 @@ ynh_app_setting_set_default --key=max_attachments --value=4
 ynh_app_setting_set_default --key=max_poll_options --value=8
 ynh_app_setting_set_default --key=max_poll_option_length --value=50
 ynh_app_setting_set_default --key=max_public_entries --value=128
-ynh_app_setting_set_default --key=proxy_media --value=true
+ynh_app_setting_set_default --key=proxy_media --value=false
 ynh_app_setting_set_default --key=show_instance_timeline --value=false
-ynh_app_setting_set_default --key=strip_exif --value=true
+ynh_app_setting_set_default --key=strip_exif --value=false
 ynh_app_setting_set_default --key=enable_svg --value=false
 ynh_app_setting_set_default --key=shared_inboxes --value=true
 ynh_app_setting_set_default --key=badlogin_retries --value=5

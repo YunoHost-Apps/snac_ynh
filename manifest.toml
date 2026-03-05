@@ -73,6 +73,7 @@ ram.runtime = "64M"
     [resources.permissions]
     main.url = "/"
     main.allowed = "visitors"
+    main.auth_header = false
     main.show_tile = false
 
     [resources.ports]
