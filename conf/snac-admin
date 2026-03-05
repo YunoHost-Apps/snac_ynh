@@ -1,0 +1,9 @@
+#!/bin/bash
+# Wrapper script for snac2 CLI commands
+# Usage: snac-admin <command> [options...]
+# Example: snac-admin adduser myuser
+#          snac-admin resetpwd myuser
+#          snac-admin userlist
+
+export SNAC_BASEDIR="__DATA_DIR__"
+exec "__INSTALL_DIR__/snac" "$@"

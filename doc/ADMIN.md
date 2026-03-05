@@ -4,20 +4,20 @@ All snac2 server settings can be configured through the YunoHost admin panel und
 
 ## CLI Commands
 
-You can manage your snac2 instance from the command line:
+A `snac-admin` wrapper is installed for convenience. Run commands as the snac user:
 
 ```bash
 # Add a new user
-sudo -u __ID__ __INSTALL_DIR__/snac adduser __DATA_DIR__ username
+sudo -u __ID__ snac-admin adduser username
 
 # List users
-sudo -u __ID__ __INSTALL_DIR__/snac userlist __DATA_DIR__
+sudo -u __ID__ snac-admin userlist
 
 # Reset a user's password
-sudo -u __ID__ __INSTALL_DIR__/snac resetpwd __DATA_DIR__ username
+sudo -u __ID__ snac-admin resetpwd username
 
 # Check and purge old data
-sudo -u __ID__ __INSTALL_DIR__/snac purge __DATA_DIR__
+sudo -u __ID__ snac-admin purge
 ```
 
 ## Data Location

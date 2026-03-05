@@ -4,20 +4,20 @@ Tous les paramètres du serveur snac2 peuvent être configurés via le panneau d
 
 ## Commandes CLI
 
-Vous pouvez gérer votre instance snac2 depuis la ligne de commande :
+Un script `snac-admin` est installé pour simplifier l'utilisation. Exécutez les commandes en tant qu'utilisateur snac :
 
 ```bash
 # Ajouter un nouvel utilisateur
-sudo -u __ID__ __INSTALL_DIR__/snac adduser __DATA_DIR__ nom_utilisateur
+sudo -u __ID__ snac-admin adduser nom_utilisateur
 
 # Lister les utilisateurs
-sudo -u __ID__ __INSTALL_DIR__/snac userlist __DATA_DIR__
+sudo -u __ID__ snac-admin userlist
 
 # Réinitialiser le mot de passe d'un utilisateur
-sudo -u __ID__ __INSTALL_DIR__/snac resetpwd __DATA_DIR__ nom_utilisateur
+sudo -u __ID__ snac-admin resetpwd nom_utilisateur
 
 # Vérifier et purger les anciennes données
-sudo -u __ID__ __INSTALL_DIR__/snac purge __DATA_DIR__
+sudo -u __ID__ snac-admin purge
 ```
 
 ## Emplacement des données
