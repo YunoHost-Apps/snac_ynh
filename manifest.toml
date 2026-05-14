@@ -7,7 +7,7 @@ name = "snac2"
 description.en = "A simple, minimalistic ActivityPub instance (Fediverse) with a file-based storage system"
 description.fr = "Une instance ActivityPub simple et minimaliste (Fediverse) avec un stockage basé sur des fichiers"
 
-version = "2.90~ynh1"
+version = "2.92~ynh1"
 
 maintainers = ["rochacbruno"]
 
@@ -60,8 +60,8 @@ ram.runtime = "64M"
 
 [resources]
     [resources.sources.main]
-    url = "https://codeberg.org/grunfink/snac2/archive/2.90.tar.gz"
-    sha256 = "b488b8d1c6b1c1a90365f386c6d9b0527f104546b06028d6e0eb5caa88bf5588"
+    url = "https://codeberg.org/grunfink/snac2/archive/2.92.tar.gz"
+    sha256 = "91cf268a25be954c2c53afd8f41a5844d0d61268d2a6ba2d4df3008206f5b1d8"
 
     autoupdate.strategy = "latest_forgejo_tag"
     autoupdate.upstream = "https://codeberg.org/grunfink/snac2"
