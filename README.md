@@ -11,7 +11,7 @@ It shall NOT be edited by hand.
 A simple, minimalistic ActivityPub instance (Fediverse) with a file-based storage system
 
 [![App Demo](https://img.shields.io/badge/App_Demo-blue?style=for-the-badge)](https://comam.es/snac/)
-[![Version: 2.93~ynh1](https://img.shields.io/badge/Version-2.93~ynh1-rgb(18,138,11)?style=for-the-badge)](https://ci-apps.yunohost.org/ci/apps/snac/)
+[![Version: 2.94~ynh1](https://img.shields.io/badge/Version-2.94~ynh1-rgb(18,138,11)?style=for-the-badge)](https://ci-apps.yunohost.org/ci/apps/snac/)
 
 <div align="center">
 <a href="https://apps.yunohost.org/app/snac"><img height="100px" src="https://github.com/YunoHost/yunohost-artwork/raw/refs/heads/main/badges/neopossum-badges/badge_more_info_on_the_appstore.svg"/></a>
