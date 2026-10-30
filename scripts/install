@@ -62,9 +62,9 @@ strict_public_timelines=false
 hide_delete_post_button=false
 favicon_url=""
 rss_hashtag_poll_hours=0
-smtp_url=""
-smtp_username=""
-smtp_password=""
+smtp_url="smtp://$domain:587"
+smtp_username="mail_user"
+smtp_password="mail_pwd"
 
 # Persist all settings
 ynh_app_setting_set --key=dbglevel --value="$dbglevel"
