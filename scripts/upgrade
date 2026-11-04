@@ -19,6 +19,10 @@ ynh_systemctl --service="$app" --action="stop"
 #=================================================
 ynh_script_progression "Ensuring downward compatibility..."
 
+smtp_url="smtp://$domain:587"
+smtp_username="$app"
+smtp_password="$mail_pwd"
+
 # Compute and store path prefix if not already set
 compute_path_prefix
 ynh_app_setting_set_default --key=path_prefix --value="$path_prefix"
@@ -63,9 +67,9 @@ ynh_app_setting_set_default --key=strict_public_timelines --value=false
 ynh_app_setting_set_default --key=hide_delete_post_button --value=false
 ynh_app_setting_set_default --key=favicon_url --value=""
 ynh_app_setting_set_default --key=rss_hashtag_poll_hours --value=0
-ynh_app_setting_set_default --key=smtp_url --value=""
-ynh_app_setting_set_default --key=smtp_username --value=""
-ynh_app_setting_set_default --key=smtp_password --value=""
+ynh_app_setting_set_default --key=smtp_url --value="$smtp_url"
+ynh_app_setting_set_default --key=smtp_username --value="$app"
+ynh_app_setting_set_default --key=smtp_password --value="$mail_pwd"
 
 #=================================================
 # DOWNLOAD, CHECK AND UNPACK SOURCE

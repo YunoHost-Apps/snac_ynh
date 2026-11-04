@@ -67,7 +67,8 @@ ram.runtime = "64M"
     autoupdate.upstream = "https://codeberg.org/grunfink/snac2"
 
     [resources.system_user]
-
+    allow_email = true
+    
     [resources.install_dir]
     group = "www-data:r-x"
 
